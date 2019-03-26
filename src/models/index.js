@@ -4,7 +4,7 @@ import User from './user';
 import Message from './message';
 
 const connectDb = () => {
-    return mongoose.connect(process.env.DATABASE_URL);
+    return mongoose.connect(process.env.MONGODB_URI);
     // { useNewUrlParser: true }
 };
 
