@@ -12,4 +12,18 @@ router.get('/:userId', async (req, res) => {
     return res.send(user);
 });
 
+router.post('/', async (req, res) => {
+    const user = await req.context.models.User.create({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        location: req.body.location,
+        image: req.body.image,
+        createdAt: new Date(),
+    });
+    return res.send(user);
+});
+
 export default router;

@@ -1,9 +1,21 @@
 import models from '../models';
 
 export const createUsersWithMessages = async () => {
+    const user0 = new models.User({
+        username: 'Unauthorized',
+        email: 'invalid@email.com',
+        password: 'z',
+        firstname: 'Not',
+        lastname: 'Authorized',
+        location: 'Unknown',
+        image:
+            'http://www.safetylabelsolutions.com/assets/images/products/7004H-ISO.gif',
+        createdAt: new Date(),
+    });
     const user1 = new models.User({
         username: 'Sebbe',
-        email: 'sun@email.com',
+        email: 'GUN@email.com',
+        password: 'x',
         firstname: 'Sebastian',
         lastname: 'Uddén',
         location: 'Sweden',
@@ -14,6 +26,7 @@ export const createUsersWithMessages = async () => {
     const user2 = new models.User({
         username: 'Henke',
         email: 'hfm@email.com',
+        password: 'y',
         firstname: 'Henrik',
         lastname: 'Fridström',
         location: 'Sweden',
@@ -52,6 +65,7 @@ export const createUsersWithMessages = async () => {
     await message3.save();
     await message4.save();
 
+    await user0.save();
     await user1.save();
     await user2.save();
 };
