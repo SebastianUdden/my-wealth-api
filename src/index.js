@@ -33,7 +33,7 @@ connectDb().then(async () => {
     if (process.env.SEED_DB_WITH_USERS_AND_MESSAGES) {
         createUsersWithMessages();
     }
-    app.listen(process.env.PORT, () =>
+    app.listen(process.env.PORT || 3000, () =>
         console.log(`Example app listening on port ${process.env.PORT}...`),
     );
 });
