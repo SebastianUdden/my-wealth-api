@@ -60,12 +60,12 @@ export const createUsersWithMessages = async () => {
         createdAt: new Date(),
     });
 
-    // await message1.save();
-    // await message2.save();
-    // await message3.save();
-    // await message4.save();
+    await message1.save();
+    await message2.save();
+    await message3.save();
+    await message4.save();
 
-    // await user0.save();
-    // await user1.save();
-    // await user2.save();
+    await user0.save();
+    await user1.save();
+    await user2.save();
 };
