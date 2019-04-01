@@ -23,6 +23,20 @@ router.post('/', async (req, res) => {
     return res.send(message);
 });
 
+router.put('/:messageId', async (req, res) => {
+    const updatedMessage = await req.context.models.Message.findByIdAndUpdate(
+        req.params.messageId,
+        {
+            $set: {
+                text: req.body.text,
+                updatedAt: new Date(),
+            },
+        },
+        { new: true },
+    );
+    return res.send(updatedMessage);
+});
+
 router.delete('/:messageId', async (req, res) => {
     const message = await req.context.models.Message.findById(
         req.params.messageId,

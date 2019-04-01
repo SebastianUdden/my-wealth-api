@@ -26,4 +26,24 @@ router.post('/', async (req, res) => {
     return res.send(user);
 });
 
+router.put('/:userId', async (req, res) => {
+    const updatedUser = await req.context.models.User.findByIdAndUpdate(
+        req.params.userId,
+        {
+            $set: {
+                username: req.body.username,
+                email: req.body.email,
+                password: req.body.password,
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                location: req.body.location,
+                image: req.body.image,
+                updatedAt: new Date(),
+            },
+        },
+        { new: true },
+    );
+    return res.send(updatedUser);
+});
+
 export default router;

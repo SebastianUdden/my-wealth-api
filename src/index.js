@@ -23,16 +23,16 @@ app.use('/users', routes.users);
 app.use('/messages', routes.messages);
 
 connectDb().then(async () => {
-    if (process.env.ERASE_DB_ON_SYNC) {
-        await Promise.all([
-            models.User.deleteMany({}),
-            models.Message.deleteMany({}),
-        ]);
-    }
+    // if (process.env.ERASE_DB_ON_SYNC) {
+    //     await Promise.all([
+    //         models.User.deleteMany({}),
+    //         models.Message.deleteMany({}),
+    //     ]);
+    // }
 
-    if (process.env.SEED_DB_WITH_USERS_AND_MESSAGES) {
-        createUsersWithMessages();
-    }
+    // if (process.env.SEED_DB_WITH_USERS_AND_MESSAGES) {
+    //     createUsersWithMessages();
+    // }
     app.listen(process.env.PORT || 3000, () =>
         console.log(`Example app listening on port ${process.env.PORT}...`),
     );
